@@ -9,9 +9,22 @@
     
 </body>
 <Script>
-    let fecha = new Date(prompt("ingrese la fecha: ")); 
-    let formatoDeseado = fecha.getDate() + "/" + (fecha.getMonth() + 1) + "/" + fecha.getFullYear(); 
-    console.log(formatoDeseado);
-    document.write(``)
+   let fechaInput = prompt("Ingrese la fecha en formato dd-mm-yyyy:");
+
+// Valida la fecha ingresada
+if (/^\d{2}\/\d{2}\/\d{4}$/.test(fechaInput)) {
+    // Divide la fecha por los guiones
+    let partesFecha = fechaInput.split("/");
+    
+    // Reconstruye la fecha con barras
+    let fechaFormateada = `${partesFecha[0]}/${partesFecha[1]}/${partesFecha[2]}`;
+    
+    console.log(`Fecha: ${fechaFormateada}`);
+    document.write(`Fecha: ${fechaFormateada}`);
+} else {
+    console.log("Por favor, ingrese una fecha válida en el formato dd-mm-yyyy.");
+    document.write("Por favor, ingrese una fecha válida en el formato dd-mm-yyyy.");
+}
+
 </Script>
 </html>

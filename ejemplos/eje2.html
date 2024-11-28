@@ -10,19 +10,27 @@
     
 </body>
 <script>
-    let a = Number(prompt("Ingrese el valor de A: "));
-    b = Number(prompt("Ingrese el valor de B: "));
-    c = Number(prompt("Ingrese el valor de C: "));
-    
-    
-   if ((a != 0) && ((b^2 - 4*a*c ) >0)) {
-   
-   }else{
-      x1 = (-b + Math.sqrt(b**2 - 4 * a * c)) / (2 * a);
-      x2 = (-b - Math.sqrt(b**2 - 4 * a * c))/ (2 * a);
-   }
-   console.log(x1 + x2);
-    
+let a = Number(prompt("Ingrese el valor de A: "));
+let b = Number(prompt("Ingrese el valor de B: "));
+let c = Number(prompt("Ingrese el valor de C: "));
+
+if (a === 0) {
+    console.log("El valor de 'a' no puede ser cero en una ecuación cuadrática.");
+} else {
+    let discriminante = b ** 2 - 4 * a * c;
+
+    if (discriminante < 0) {
+        console.log("La ecuación no tiene raíces reales.");
+    } else {
+        let x1 = (-b + Math.sqrt(discriminante)) / (2 * a);
+        let x2 = (-b - Math.sqrt(discriminante)) / (2 * a);
+
+        console.log(`Las raíces son: x1 = ${x1}, x2 = ${x2}`);
+        
+
+    }
+}
+
 
 
 </script>
