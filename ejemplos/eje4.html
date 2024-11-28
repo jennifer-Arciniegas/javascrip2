@@ -13,17 +13,22 @@
 
 // Valida la fecha ingresada
 if (/^\d{2}\/\d{2}\/\d{4}$/.test(fechaInput)) {
-    // Divide la fecha por los guiones
+    // split divide la cadena por / por lo que se crea una nueva variable donde se almacenara la lista 
+    //con los datos ingresados
     let partesFecha = fechaInput.split("/");
     
-    // Reconstruye la fecha con barras
+    // como partes fecha es una lista entonces se organiza siendo el elemento 0 correspondiete a dia
+    // el 1 corresponde al mes y el 2 al año
     let fechaFormateada = `${partesFecha[0]}/${partesFecha[1]}/${partesFecha[2]}`;
-    
-    console.log(`Fecha: ${fechaFormateada}`);
-    document.write(`Fecha: ${fechaFormateada}`);
+    // se imprime para consola
+    console.log(`Fecha valida: ${fechaFormateada}`);
+    //se imprime en pantalla
+    document.write(`Fecha valida: ${fechaFormateada}`);
 } else {
-    console.log("Por favor, ingrese una fecha válida en el formato dd-mm-yyyy.");
-    document.write("Por favor, ingrese una fecha válida en el formato dd-mm-yyyy.");
+    // en caso de no ser valido el formato
+    console.log("Por favor, ingrese una fecha válida en el formato dd/mm/yyyy.");
+
+    document.write("Por favor, ingrese una fecha válida en el formato dd/mm/yyyy.");
 }
 
 </Script>
