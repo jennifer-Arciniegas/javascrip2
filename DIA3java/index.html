@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // averiguar si una cadena es palindrome 
+//debe usar ciclos no usar funciones 
+// funciones nombradas
+function espalindrome(cad){
+
+    let lcad = cad.length -1;
+   
+    for(let i=0; i <= lcad / 2; i++){
+        let lini = cad[i];
+        let fin = cad[lcad - i];
+    
+        if(lini !== fin) {
+            return false;
+        }
+
+    }
+    return true;
+
+}
+let cad = "ana";
+
+console.log((espalindrome(cad)) ? "es palindrome": "no es palindrome");
+</script>
+</html>
