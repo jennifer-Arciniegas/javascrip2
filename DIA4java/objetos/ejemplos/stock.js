@@ -8,7 +8,7 @@ function actualizarstock(producto, nuevaCantidad) {
   };
   return productoActualizado;
 }
-function cambiarNombre(producto, nuevoNombre) {
+function cambiarNombre(producto, nuevoNombre) { 
   const productoActualizado = {
     ...producto,
     nombre: nuevoNombre,
