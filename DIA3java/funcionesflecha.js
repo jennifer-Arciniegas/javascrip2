@@ -1,5 +1,5 @@
 // FUNCIONES FLECHA
-/*const sumar = (a, b) => {
+/*const operationr = (a, b) => {
     return a + b;
 */
 
