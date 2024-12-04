@@ -6,45 +6,49 @@
     <title>Document</title>
 </head>
 <body>
-   <h1>Obtener datos de un formuulario</h1> 
+    <h1>Obtener datos de un formulario</h1>
 
-   <form action="" onsubmit="return false" id="formulario">
-    <label for="nombre">Nombre: </label>
-    <input type="text" nombre="nombre" id="nombre">
-    <br><br>
-    <label for="edad">Edad: </label>
-    <input type="number" name="edad" id="edad">
-    <button onclick="obtenerDatos()">Enviar</button>
+    <form action="" onsubmit="return false" id="formu">
+        <label for="nombre">Nombre: </label>
+        <input type="text" name="nombre" id="nombre">
+        <br><br>
+        <label for="edad">Edad:</label>
+        <input type="number" name="edad" id="edad">
+        <button onclick="obtenerDatos()">Enviar</button>
+    </form>
 
-
-  
-   </form>
 </body>
 <script>
 
 function obtenerDatos() {
-    const formulario = document.forms["formulario"];
-   /* let nombre = formulario["nombre"].value;
-    let edad = formulario["edad"].value;
-    alert(nombre + " " + edad);*/
+    const formu = document.forms["formu"];
+    // let nombre = formu["nombre"].value;
+    // let edad = formu["edad"].value;
 
-    //objeto formData
-    const datosFormu = new FormData(formulario);
+    // alert (nombre + " " + edad);
+
+    // Objeto FormData
+    const datosFormu = new FormData(formu);
     datosFormu.forEach((k, v) => console.log(k + " -> " + v));
-
+    
+    const objFormu = Object.fromEntries(datosFormu.entries());
+    const serialform = JSON.stringify(objFormu);
+    console.log(serialform);
 }
 
 const fData = new FormData();
-//agrregar datos al form data
-fData.append("Davin", 20);
+
+// Agregar datos al formData
+fData.append("David", 20);
 fData.append("Jenny", 15);
-for(const [llave, valor] of fData)
+for(const [llave, valor] of fData) 
     console.log(llave + " : " + valor);
 
-// has formData.has() -> true or false if find the value with this key
-//forData.delete(key) -> delete the key if find it
-//forData.get() -> return the value of a key
-//formData.getAll() -> return all [key, value] stored
+// formData.has(key) -> true | false si esta la llave en formData
+// formData.delete(key) -> elimina al llave,valor si existe
+// formData.get(key) -> devuelve el valor de una llave
+// formData.getAll() -> Obtiene todos los [key, value]
+
 fData.getAll()
 
 </script>
