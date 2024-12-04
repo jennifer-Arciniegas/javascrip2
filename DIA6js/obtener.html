@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h1>Obtener datos de un formuulario</h1> 
+
+   <form action="" onsubmit="return false" id="formulario">
+    <label for="nombre">Nombre: </label>
+    <input type="text" nombre="nombre" id="nombre">
+    <br><br>
+    <label for="edad">Edad: </label>
+    <input type="number" name="edad" id="edad">
+    <button onclick="obtenerDatos()">Enviar</button>
+
+
+  
+   </form>
+</body>
+<script>
+
+function obtenerDatos() {
+    const formulario = document.forms["formulario"];
+   /* let nombre = formulario["nombre"].value;
+    let edad = formulario["edad"].value;
+    alert(nombre + " " + edad);*/
+
+    //objeto formData
+    const datosFormu = new FormData(formulario);
+    datosFormu.forEach((k, v) => console.log(k + " -> " + v));
+
+}
+
+const fData = new FormData();
+//agrregar datos al form data
+fData.append("Davin", 20);
+fData.append("Jenny", 15);
+for(const [llave, valor] of fData)
+    console.log(llave + " : " + valor);
+
+// has formData.has() -> true or false if find the value with this key
+//forData.delete(key) -> delete the key if find it
+//forData.get() -> return the value of a key
+//formData.getAll() -> return all [key, value] stored
+fData.getAll()
+
+</script>
+</html>
