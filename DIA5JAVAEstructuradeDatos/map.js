@@ -21,7 +21,7 @@ for(let [llave, valor] of mapa){
 }
 //reccorido con foreach
 
-mapa.forEach(( valor, llave) => console.log(valor + "->" + llave));
+mapa.forEach(( valor, llave) => console.log(valor + "->" + llave));    
 
 console.log("tamaño " + mapa.size);
 
