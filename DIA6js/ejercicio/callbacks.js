@@ -13,7 +13,7 @@ function suma(){
     console.log("el actual es:" + resul)
     
 }
-
+ 
 
 // se llama 
 Icallback(suma, 4); 
