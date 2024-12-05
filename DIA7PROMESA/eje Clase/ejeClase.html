@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Cajas de texto</h1>
+    
+</body>
+<script>
+    
+            setTimeout(()=> {
+            resolve("tarea A ");
+            }, 1000);
+
+            setTimeout(()=> {
+            resolve("tarea B");
+            }, 2000);
+
+            setTimeout(()=> {
+            resolve("tarea C ");
+            }, 5000);
+
+            setTimeout(()=> {
+            resolve("tarea D ");
+            }, 3000);
+
+            setTimeout(()=> {
+            resolve("tarea E ");
+            }, 5000);
+
+            setTimeout(()=> {
+            resolve("tarea F ");
+            }, 9000);
+
+            setTimeout(()=> {
+            resolve("tarea G ");
+            }, 7000);
+
+            setTimeout(()=> {
+            resolve("tarea H ");
+            }, 11000);
+
+console.log("inicio")
+ordenCajas()
+    .then(res => {
+        console.warn("no hubo error en la promesa");
+      console.log(res)
+    })
+
+    .catch(res => {
+        console.log("Error en la promesa");
+        console.log(res);
+    })
+
+    console.log("FIN");
+
+</script>
+</html>
