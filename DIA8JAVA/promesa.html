@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 1 asincronia</title>
+</head>
+<script>
+    async function obtenerDatos(param){
+        const response = await fetch("data.json");
+        const data = await response.json(); // prepara lo texto para imprimir en formato json
+        console.log(data); // imprime en consola en formato array
+
+    }
+    console.log("codigo asincrono");
+    obtenerDatos();
+</script>
+<body>
+    <h1>asincronia con async Await</h1>
+    <hr>
+    <p>con archivos json</p>
+</body>
+
+</html>
