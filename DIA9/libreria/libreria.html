@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>Libreria</h1>
+    <form action="" onsubmit="return false" id="formu">
+        <label for="fechaPactada">fecha de entrega pactada: </label>
+        <input type="date" name="fechaPactada" id="fechaPactada">
+        <br><br>
+        <label for="fechaEntrega">fecha de entrega:</label>
+        <input type="date" name="fechaEntrega" id="fechaEntrega">
+        <button onclick="obtenerDatos()">Enviar</button>
+    </form>
+
+    <p> dias de retraso en la entrega: </p>  <p id="dias"> </p>
+</body>
+<script>
+    function obtenerDatos(){
+        const formu = document.forms["formu"];
+        const fechapactadaingreada = document.getElementById("fechaPactada");
+        const fechaP = fechapactadaingreada.value;
+
+        const fechaEntregadaIngresada = document.getElementById("fechaEntrega");
+        const fechaE = fechaEntregadaIngresada.value;
+
+        const FPactada = new Date (fechaP);
+        const FEentrega = new Date(fechaE);
+
+        const dia =1000* 60 * 60 * 24;
+        const diferencia = ((FEentrega.getTime() - FPactada.getTime() )/ dia)
+        console.log(FPactada);
+        console.log(FEentrega);
+        console.log(diferencia);
+
+        document.getElementById("dias").innerHTML = diferencia;
+    
+        
+        
+
+        if (diferencia <= 3) {
+            console.log(" la multa es de $7.000")
+            alert("la multa es de $7.000")
+        } else {
+            console.log("la multa es $10.000 y una sancion de no prestamo por 6 meses")
+            alert("la multa es $10.000 y una sancion de no prestamo por 6 meses")
+        }
+    }
+</script>
+</html>
