@@ -9,28 +9,42 @@
     <title>Document</title>
 </head>
 <body>
-    <main>
-        <section class="box-border h-128 w-128 p-4 border-4 ">
+    <main class="flex flex-row gap-4">
+        <section class="container mx-auto p-16 bg-emerald-200				">
             <div id="formularios">
                 <form action="" onsubmit="return false" id="formu">
+                    <h1 class="text-center	">Formulario</h1>
                     <label for="nombre">Nombre: </label>
-                    
-                    <input type="text"  name="nombre" id="nombre">
+                    <input class="border border-blue-300 py-1 px-2 rounded-lg focus:border-indigo-500 
+                    outline-none focus-ring focus:ring-inidigo-500" type="text"  name="nombre" id="nombre">
+
+
                     <br> <br>
-                    <label for="fechaInscriptcion">Fecha de inscripcion: </label>
-                    <input type="date" name="fechaInscriptcion" id="fechaInscriptcion">
+                    <label for="fechaInscripcion ">Fecha de inscripcion: </label>
+                    <input class="border border-blue-300 py-1 px-2 rounded-lg focus:border-indigo-500 
+                    outline-none focus-ring focus:ring-inidigo-500" type="date" name="fechaInscripcion " id="fechaInscripcion ">
                     <br> <br>
                     <label for="Dmemdias"> Duracion de la membresia en dias</label>
-                    <input type="number">
+                    <input class="border border-blue-300 py-1 px-2 rounded-lg focus:border-indigo-500 
+                    outline-none focus-ring focus:ring-inidigo-500" type="number" name="Dmemdias" id="Dmemdias" >
                     <br> <br>
-                    <button onclick=""> Registrar </button>
-                    <button onclick="">Verificar membresia activa</button>
-                    <button onclick="">Listar clientes activos</button>
+                    <div class="flex flex-row gap-8">
+                        <button  onclick="registrar()" class=" bg-black hover:bg-blue-700 text-white p-2 rounded ">Registrar</button>
+                        <button onclick="" class="  bg-black hover:bg-blue-700 text-white p-2 rounded">Verificar membresia activa</button>
+                        
+
+                    </div>
+                   
                 </form>
             </div>
+
+        </section >
+        <section class="container mx-auto p-16 bg-emerald-200	">
+            <button onclick="" class="bg-black hover:bg-blue-700 text-white p-2 rounded">Listar clientes activos</button>
 
         </section>
         
     </main>
 </body>
+<script src="./src/app.js"></script>
 </html>
