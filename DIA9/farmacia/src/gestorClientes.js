@@ -12,6 +12,7 @@ export function registrar() {
   clientesRegistrados.push(cliente);
   actualizarClientesActivos();
   console.log("Cliente registrado:", cliente);
+  alert("Cliente registrado", cliente);
 }
 
 function calcularFechaExpiracion(fechaInicio, dias) {

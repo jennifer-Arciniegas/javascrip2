@@ -11,7 +11,7 @@ window.membresia = () => {
   const cliente = Object.fromEntries(datosFormu.entries());
 
   // Validar que los campos tengan valores
-  if (!cliente.fechaI || !cliente.dias || isNaN(parseInt(cliente.dias, 10))) {
+  if (!cliente.fechaI || !cliente.dias || isNaN(parseInt(cliente.dias))) {
     alert("Por favor ingresa una fecha válida y un número de días.");
     return;
   }
@@ -22,10 +22,7 @@ window.membresia = () => {
 
 window.listarClientesActivos = () => {
   const tablaContainer = document.getElementById("tablaClientesContainer");
-  if (
-    tablaContainer.style.display === "none" ||
-    tablaContainer.style.display === ""
-  ) {
+  if (tablaContainer.style.display === "none" || tablaContainer.style.display === "") {
     tablaContainer.style.display = "block";
     actualizarTablaClientes();
   } else {
@@ -33,7 +30,3 @@ window.listarClientesActivos = () => {
   }
 };
 
-// Ya no necesitamos inicializar la tabla al cargar la página
-// document.addEventListener('DOMContentLoaded', () => {
-//   actualizarTablaClientes();
-// });
