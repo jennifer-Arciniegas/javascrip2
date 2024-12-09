@@ -1,50 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>Registro de Clientes</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <title>Document</title>
+    <link rel="stylesheet" href="./src/style.css">
 </head>
 <body>
-    <main class="flex flex-row gap-4">
-        <section class="container mx-auto p-16 bg-emerald-200				">
-            <div id="formularios">
-                <form action="" onsubmit="return false" id="formu">
-                    <h1 class="text-center	">Formulario</h1>
-                    <label for="nombre">Nombre: </label>
-                    <input class="border border-blue-300 py-1 px-2 rounded-lg focus:border-indigo-500 
-                    outline-none focus-ring focus:ring-inidigo-500" type="text"  name="nombre" id="nombre">
-
-
-                    <br> <br>
-                    <label for="fechaInscripcion ">Fecha de inscripcion: </label>
-                    <input class="border border-blue-300 py-1 px-2 rounded-lg focus:border-indigo-500 
-                    outline-none focus-ring focus:ring-inidigo-500" type="date" name="fechaInscripcion " id="fechaInscripcion ">
-                    <br> <br>
-                    <label for="Dmemdias"> Duracion de la membresia en dias</label>
-                    <input class="border border-blue-300 py-1 px-2 rounded-lg focus:border-indigo-500 
-                    outline-none focus-ring focus:ring-inidigo-500" type="number" name="Dmemdias" id="Dmemdias" >
-                    <br> <br>
-                    <div class="flex flex-row gap-8">
-                        <button  onclick="registrar()" class=" bg-black hover:bg-blue-700 text-white p-2 rounded ">Registrar</button>
-                        <button onclick="" class="  bg-black hover:bg-blue-700 text-white p-2 rounded">Verificar membresia activa</button>
-                        
-
-                    </div>
-                   
-                </form>
-            </div>
-
-        </section >
-        <section class="container mx-auto p-16 bg-emerald-200	">
-            <button onclick="" class="bg-black hover:bg-blue-700 text-white p-2 rounded">Listar clientes activos</button>
-
-        </section>
+    <thead>
         
-    </main>
+    </thead>
+    <section class="bg-blue-300">
+        <h1>Registro de Clientes</h1>
+        <form action="" onsubmit="return false" id="formu">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" id="nombre" required>
+            <br><br>
+            <label for="fechaI">Fecha Ingresada:</label>
+            <input type="date" name="fechaI" id="fechaI" required>
+            <br><br>
+            <label for="dias">Días:</label>
+            <input type="number" id="dias" name="dias" required>
+            <br><br>
+            <button type="button" onclick="registrar()">Registrar Cliente</button>
+            <button type="button" onclick="membresia()">Verificar Membresía</button>
+            <button type="button" onclick="listarClientesActivos()">Listar Clientes Activos</button>
+        </form>
+    </section>
+  
+    <section>
+        <div id="tablaClientesContainer">
+            <h2>Clientes con Membresía Activa</h2>
+            <table id="tablaClientes">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Fecha de Inicio</th>
+                        <th>Días</th>
+                        <th>Fecha de Expiración</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </section>
+   
+
+    <script type="module" src="./src/app.js"></script>
 </body>
-<script src="./src/app.js"></script>
 </html>
+
