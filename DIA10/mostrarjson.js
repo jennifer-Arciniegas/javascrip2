@@ -19,7 +19,7 @@ function dibujarfilas(eleMHTML, datos){
     for(let dato of datos){
         tabla +=`
         <tr>
-            <td>${dato.nombre} </td>
+            <td>${dato.Nombre} </td>
             <td>${dato.Team} </td>
             <td class="valedad">${dato.Edad} </td>
             <td class="tdimg">

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Document</title>
+</head>
+<body class=" bg-gradient-to-r from-green-400 to-blue-400">
+    <h2 class="font-mono text-lg ">Conversion de Euros a Dolares</h2>
+        <p class="font-mono text-lg ">Supondremos que un euro son dos dólares con la tasa actual de conversión.</p>
+        <br><br>
+        <div class=" flex justify-center">
+        
+        <form action="" id="conversion" class="bg-gradient-to-r from-green-400 to-blue-400 shadow-md rounded-lg px-8 pt-6 pb-8 mb-4 w-80 h-50 font-mono text-lg flex flex-col">
+        <label for="euros" class="">Euros:</label>
+        <input type="number" required name="euros" id="euros" class="bg-gray-200 border-2 border-gray-200 rounded focus:outline-none focus:bg-white focus:border-purple-500">
+        <br>  <br>
+        <label for="dolars">Dolares:</label>
+        <input type="number"  readonly name="dolars" id="dolars" class="bg-gray-200 border-2 border-gray-200 rounded focus:outline-none focus:bg-white focus:border-purple-500">
+        <br><br>
+        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white py-1 px-1 rounded-lg ">Calcular</button>
+    </form>
+    </div>
+ 
+</body>
+<script src="api.js"></script>
+</html>
