@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+
+    </main>
+</body>
+<script>
+    async function mostrar() {
+        let personas = document.querySelector("main")
+        personas.style.display = "grid"
+        personas.style.gridTemplateColumns = "repeat(4, 1fr)";
+       
+        personas.style.gap = "16px";
+
+        try {
+            const llamarApi = await fetch("https://randomuser.me/api/?results=4") //se modifica la api con ?results=4 para que pueda mostrar 
+            //4 personas diferentes al tiempo
+            if(!llamarApi.ok){
+                throw new Error("Problemas con la API");
+            }
+            const dato = await llamarApi.json();
+            console.log(dato.results);
+            // para ver 4
+            //se usa forEach para recorrer cada usuario y mediante el div se muestre la informacion
+               dato.results.forEach((items) => {
+              
+                  const content = document.createElement("div");
+                    content.style.border = "1px solid gray";
+                    content.style.width = "20vw";
+                    content.style.padding = "3%";
+                    content.style.textAlign = "center";
+                    content.innerHTML=
+                    `
+                    
+                    <h2>${items.name.first}</h2>
+                    <img style="border-radius: 90%;  width: 200px; height: 200px;" src="${items.picture.large}">
+                    <p><b>Email: </b> <a href="${items.email}"> ${items.email} </a> </p>
+                    <p><b>Telefono: </b>  <a href="${items.phone}">${items.phone} </a></p>
+                    <p><b>Edad: </b>${items.dob.age}</p>
+                    <p><b>Genero:</b> ${items.gender}</p>
+                    <p><b>Ubicación: </b>${items.location.street.name}</p>
+                    <p><b>País: </b>${items.location.country}</p>
+
+                    
+
+                    `;
+                    personas.append(content)
+             });
+                  
+
+              
+
+
+        }catch(error){
+            console.error("Error", error.message);
+            alert("problemas para cargar el contenido")
+
+        }
+        
+    }
+    mostrar();
+</script>
+</html>
