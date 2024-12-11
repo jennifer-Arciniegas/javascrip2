@@ -31,6 +31,7 @@
                dato.results.forEach((items) => {
               
                   const content = document.createElement("div");
+
                     content.style.border = "1px solid gray";
                     content.style.width = "20vw";
                     content.style.padding = "3%";
@@ -38,7 +39,7 @@
                     content.innerHTML=
                     `
                     
-                    <h2>${items.name.first}</h2>
+                    <h2>${items.name.title} ${items.name.name} ${items.name.last}</h2>
                     <img style="border-radius: 90%;  width: 200px; height: 200px;" src="${items.picture.large}">
                     <p><b>Email: </b> <a href="${items.email}"> ${items.email} </a> </p>
                     <p><b>Telefono: </b>  <a href="${items.phone}">${items.phone} </a></p>
