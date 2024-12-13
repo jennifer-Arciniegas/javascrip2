@@ -3,33 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <title>Document</title>
 </head>
-<body>
+<body class="bg-gradient-to-r from-violet-500 to-fuchsia-500 flex justify-center ">
+    <div class="bg-red-100 w-3/4 py-8 px-8 m-8  border: rounded-md shadow-2xl">   
         <form id="formu" class="formu">
             
-        <label for="nombre">Nombre del cliente:</label> <br>
-        <input type="text" name="nombre" id="nombre" required>
-        <br><br>
-        <label for="material">Material de la caja:</label> <br>
-        <select name="materiales" id="material">
-            <option value="plastico">Plástico</option>
-            <option value="carton">Cartón</option>
-            <option value="madera">Madera</option>
-        </select>
-        <br><br>
-        <label>Seleccione las dimensiones de la caja:</label> <br>
-        <input type="radio" name="rbtn" class="radiusBton" value="Diminutas">Diminutas <br>
-        <input type="radio" name="rbtn" class="radiusBton" value="Medianas">Medianas <br>
-        <input type="radio" name="rbtn" class="radiusBton" value="Grandes">Grandes <br>
-        <br><br>
-        <label for="comentario">Comentario:</label><br>
-        <input style="width: 50%; height: 50px;" type="text" id="comentario" name="comentario">
-        <br><br>
-        <button type="submit">Enviar</button>
-    </form>
-    <br>
-    <input style="width: 50%;" type="text" id="resultado" readonly>
+            <label for="nombre">Nombre del cliente:</label> 
+            <br>
+            <input class="border: rounded-lg " type="text" name="nombre" id="nombre" required>
+            <br><br>
+            <label for="material">Material de la caja:</label>
+             <br>
+            <select name="materiales" id="material">
+                <option value="plastico">Plástico</option>
+                <option value="carton">Cartón</option>
+                <option value="madera">Madera</option>
+            </select>
+            <br><br>
+            <label>Seleccione las dimensiones de la caja:</label> <br>
+            <input type="radio" name="rbtn" class="radiusBton" value="Diminutas">Diminutas <br>
+            <input type="radio" name="rbtn" class="radiusBton" value="Medianas">Medianas <br>
+            <input type="radio" name="rbtn" class="radiusBton" value="Grandes">Grandes <br>
+            <br><br>
+            <label for="comentario">Comentario:</label><br>
+            <textarea class="w-4/5 h-40 border: rounded-md" type="text" id="comentario"  name="comentario"   cols="30" rows="10"required> </textarea>
+            <br><br>
+            <button class="bg-purple-300 hover:bg-purple-500 p-1 border: rounded-lg " type="submit">Enviar</button>
+        </form>
+        <br>
+        <input class="w-4/5  border: rounded-md" type="text" id="resultado" readonly>
+    </div>
+       
 </body>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -44,7 +51,7 @@
         const dimensiones = document.querySelector("input[name='rbtn']:checked")?.value || '';
         const comentario = document.getElementById("comentario").value;
         
-        const cadena = `${nombre} ha pedido una caja de ${material} con unas dimensiones ${dimensiones}. Comentario: ${comentario}`;
+        const cadena = `${nombre} ha pedido una caja de ${material} con unas dimensiones ${dimensiones}. Que sea ${comentario}`;
         resultado.value = cadena;
     });
 });
