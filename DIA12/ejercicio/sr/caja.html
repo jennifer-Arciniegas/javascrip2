@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <form id="formu" class="formu">
+            
+        <label for="nombre">Nombre del cliente:</label> <br>
+        <input type="text" name="nombre" id="nombre" required>
+        <br><br>
+        <label for="material">Material de la caja:</label> <br>
+        <select name="materiales" id="material">
+            <option value="plastico">Plástico</option>
+            <option value="carton">Cartón</option>
+            <option value="madera">Madera</option>
+        </select>
+        <br><br>
+        <label>Seleccione las dimensiones de la caja:</label> <br>
+        <input type="radio" name="rbtn" class="radiusBton" value="Diminutas">Diminutas <br>
+        <input type="radio" name="rbtn" class="radiusBton" value="Medianas">Medianas <br>
+        <input type="radio" name="rbtn" class="radiusBton" value="Grandes">Grandes <br>
+        <br><br>
+        <label for="comentario">Comentario:</label><br>
+        <input style="width: 50%; height: 50px;" type="text" id="comentario" name="comentario">
+        <br><br>
+        <button type="submit">Enviar</button>
+    </form>
+    <br>
+    <input style="width: 50%;" type="text" id="resultado" readonly>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("formu");
+    const resultado = document.getElementById("resultado");
+
+    form.addEventListener("submit", function(e){
+        e.preventDefault(); // Previene el envío del formulario
+
+        const nombre = document.getElementById("nombre").value;
+        const material = document.getElementById("material").value;
+        const dimensiones = document.querySelector("input[name='rbtn']:checked")?.value || '';
+        const comentario = document.getElementById("comentario").value;
+        
+        const cadena = `${nombre} ha pedido una caja de ${material} con unas dimensiones ${dimensiones}. Comentario: ${comentario}`;
+        resultado.value = cadena;
+    });
+});
+
+
+</script>
+</html>
