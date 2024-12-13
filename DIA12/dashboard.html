@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel de Usuario</title>
+    <link rel="stylesheet" href="01-sesionstorage-ejemplo.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="contenedor">
+      <h1>Panel de Usuario</h1>
+      <p id="mensajeBienvenida"></p>
+      <p id="mensajeAlerta"></p>
+      <button id="cerrarSesion" class="boton">Cerrar Sesión</button>
+    </div>
+    
+  </body>
+  <script>
+    const mensajeBienvenida = document.querySelector("#mensajeBienvenida");
+    const mensajeAlert = document.getElementById("mensajeAlerta");
+
+    let usuario = sessionStorage.getItem("UsuarioActual");
+    let pageanterior = sessionStorage.getItem("paginaAnterior")
+
+    if(pageanterior === null){
+      pageanterior = "01-sesionstorage-ejemplo.html"
+    }
+
+    if(usuario){
+      mensajeBienvenida.textContent = `hola ${usuario}, bienvenido a tu panel`
+    } else{
+      //si el usuario esta vaacio devuelva a la pagina anterior 
+      mensajeAlert.textContent = "no hay sesion activa, sera redirigido en 5 segundos a la pagina de inicio de sesion";
+      sleep(5000).then(()=> window.location.href = pageanterior);
+    }
+    document.getElementById("cerrarSesion").addEventListener("click", ()=>{
+      sessionStorage.removeItem("UsuarioActual");
+      mensajeAlert.textContent = "sesion eliminada. Volvera al incio en 5 segundos";
+      //document.getElementById("cerrarSesion").setAttribute("hidden", "");
+      document.getElementById("cerrarSesion").hidden = true;
+      sleep(5000).then(()=> window.location.href = pageanterior);
+    })
+
+    function sleep(ms){
+      return new Promise(resolve => setTimeout(resolve,ms));
+    }
+  </script>
+</html>

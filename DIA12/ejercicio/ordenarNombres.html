@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Ordenar Arrays de Cadenas</h1>
+    <hr>
+    <p>Ingrese nombres en la caja de texto de abajo y ordene este listado el cual aparece en el area de texto</p>
+    <form action="" class="formu">
+        <label for="nombre">Nombre: </label>
+        <input type="text" name="nombre" id="nombre" required>
+        <button onclick="guardarN()" class="boton">Agregar y ordenar nombre</button>
+    </form>
+    <h2>Nombres ordenados</h2>
+    <hr>
+    <input type="text" name="cajaTxt" id="cajaTxt" placeholder="aqui apareceran los nombres ordenados ">
+    <button  class="botonlimpiar"> limpiar</button>
+
+</body>
+<script>
+    nombres = [];
+    const guardarN = function(){
+        const array = [];
+        for(let i = 0; i <= 1; i++){
+            array[i] = document.getElementById(".nombre").value;
+            nombres.push (array[i])
+        }
+    }
+ 
+   
+
+
+        
+
+
+    
+    console.log(nombres)
+
+</script>
+</html>

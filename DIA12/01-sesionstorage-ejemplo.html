@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="01-sesionstorage-ejemplo.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="contenedor">
+      <h1>Inicio de Sesión</h1>
+      <form id="formularioLogin" class="formulario">
+        <label for="nombreUsuario">Nombre de Usuario:</label>
+        <input
+          type="text"
+          id="nombreUsuario"
+          placeholder="Ingresa tu nombre"
+          required
+        />
+        <button type="submit" class="boton">Ingresar</button>
+      </form>
+      <br><br>
+      <button id="btnClases" class="boton">clases</button>
+      <p id="parrafo"></p>
+
+    </div>
+    <script>
+      const formu = document.getElementById("formularioLogin");
+      formu.addEventListener("submit",event=>{
+        event.preventDefault();
+
+        const nomUser = document.getElementById("nombreUsuario").value.trim();
+        if (nomUser){
+          sessionStorage.setItem("UsuarioActual", nomUser);
+          sessionStorage.setItem("paginaAnterior", window.location.href);
+          window.location.href="dashboard.html"
+        }else{
+          alert("error usuario invalido")
+        }
+        event.stopImmediatePropagation();
+      });
+
+      document.getElementById("btnClases").addEventListener("click", () => {
+        /*const lstClases = document.querySelector(".contenedor").classList;
+        let cantClases = lstClases.length;
+        alert(cantClases + " : " + lstClases);
+       //agrega un estilo al elemento
+        classList.add("sombra")
+  
+          // true si la clase esta en la lista de clases del elemento
+        alert(lstClases.contains("sombra"));
+        //remueve el estilo del elemento
+        lstClases.remove("sombra");
+        //toogle(clase) si esta no hace nada, si no esta lo agrega 
+        lstClases.toggle("sombra")
+
+        cantClases = lstClases.length;
+        alert(cantClases + " : " + lstClases)
+
+        //replace (old, new) remplaza la clase antigua por la nueva
+        lstClases.replace("sombra", "sombra2");*/
+        //TRABAJANDO CON ATRIBUTOS-----------------------------------------------
+
+        //const lsAttr = document.querySelector(".contenedor").attributes;
+
+        //for(let elem of lsAttr)
+        //alert(`${elem.name}: ${elem.value}`)
+
+        // nodeName : devuelve el nombre del nod
+        alert(document.querySelector("#nombreUsuario").nodeName);
+
+        //textContent obtiene o modifica el texto de la etiqueta
+
+
+        //innHTML: inserta html en la etiqueta 
+        // outertxt
+        alert(document.querySelector(".contenedor").outerHTML);
+        //setHTML : agrega html a la etiqueta, evita la inyeccion de html 
+        //malicioso que no tenga js.
+
+        document.getElementById("parrafo").innerHTML = 
+        `parrafo\
+        <script> \
+          alert("soy malvada :3");\
+          <\/script>
+        
+        `
+
+      })
+
+  
+    </script>
+
+  </body>
+</html>
