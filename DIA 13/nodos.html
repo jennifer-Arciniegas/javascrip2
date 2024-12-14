@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            border: blue solid 1px;
+        }
+        .parent{
+            border: purple solid 1px;
+            margin: 30px;
+        }
+        .textoRojo{
+            color: brown;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="parent">
+            <p>Adoro el silencio</p>
+            <p class="menssage">hola soy camper</p>
+        </div>
+
+    </div>
+    <button id="appendChild" onclick="addElements()"> agregar div</button>
+    
+</body>
+<script>
+    const container = document.querySelector(".container");
+    const parent = document.querySelector(".parent");
+
+    //contador de parrafos
+
+    let cont = 0; 
+    function addElements(){
+        const div = document.createElement("div");
+        div.innerHTML =`<p onclick='alert(\"soy u parrafo\")' class= 'textoRojo'> Div con nuevo parafo ${++cont}</p>`;
+      
+   
+        container.appendChild(div);
+    }
+
+</script>
+</html>

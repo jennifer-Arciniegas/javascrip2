@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="formu">
+        <label for="gradosCen"> Grados Centígrados</label>
+        <input type="number" name="gradosCen" id="gradosCen" required>
+        <label for="gradosFa"> Grados Fahrenheit</label>
+        <input type="number" name="gradosFa" id="gradosFa" readonly>
+        <button type="submit">Calcular</button>
+        <button onclick="gradosFagradosC()"> calculo de GF a GC</button>
+    </form>
+    
+</body>
+<script>
+    const GC = document.getElementById("gradosCen")
+    const GF = document.getElementById("gradosFa")
+
+    function convertir() {
+        
+        const gradosC = parseInt(GC.value);
+
+        // Verifica si el valor de gradosC no es NaN 
+        if (!isNaN(gradosC)) {
+            const resultado = parseInt((gradosC * (9 / 5)) + 32);
+            GF.value = resultado;
+        } 
+    }
+
+  
+    document.getElementById("formu").addEventListener("submit", (event) => {
+        event.preventDefault();
+        convertir();
+    });
+
+    function gradosFagradosC(){
+        const resultado = parseInt((gradosC * (9 / 5)) + 32);
+        GF.value = resultado;
+
+    }
+</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gestion de atributos</title>
+</head>
+<body>
+    <p align="left" id="parrafo">Campus lands</p>
+    <button onclick="objeteneratributos()">Obtener atributos</button>
+    <button onclick="cambiaratributos()">cambiar atributos</button>
+    <button onclick="ocultaratributos()">ocultar parrafo</button>
+
+    
+</body>
+<script>
+    //para obtener el atrtubpo del elemento
+    const parragfo = document.getElementById("parrafo");
+
+    function objeteneratributos(){
+        alert(parragfo.getAttribute("align"));
+    }
+    ///cambia valores de un atributo
+    function cambiaratributos(){
+        const alineacion = parragfo.getAttribute("align");
+
+        parragfo.setAttribute("align", alineacion === "center" ? "left": "center")
+    }
+    //oculta una propiedad 
+    function ocultaratributos(){
+        parragfo.toggleAttribute("hidden"); // con true se forza a ocultarlo en la pagina
+        const boton = document.querySelectorAll("button")[2];
+        // para preguntar si quiere ocultar algo es util ==  alert(boton.outerText);
+        boton.innerText = valor ? "Mostrar parrafo" : "ocultar parrafo"
+   }
+
+   
+</script>
+</html>
