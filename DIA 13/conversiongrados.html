@@ -3,17 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
 </head>
-<body>
-    <form id="formu">
-        <label for="gradosCen"> Grados Centígrados</label>
+<body class="bg-gradient-to-r from-sky-500 to-indigo-500 flex justify-center">
+   
+    <div class="bg-red-100 w-2/6 py-8 px-8 m-8  border: rounded-md shadow-2xl">
+        <form id="formu">
+        <label for="gradosCen"> Grados Centígrados: </label>
+        
         <input type="number" name="gradosCen" id="gradosCen" required>
-        <label for="gradosFa"> Grados Fahrenheit</label>
-        <input type="number" name="gradosFa" id="gradosFa" readonly>
-        <button type="submit">Calcular</button>
-        <button onclick="gradosFagradosC()"> calculo de GF a GC</button>
+        <br><br>
+        <label for="gradosFa"> Grados Fahrenheit: </label>
+        
+        <input type="number" name="gradosFa" id="gradosFa" required>
+        <br><br>
+        <button type="submit" class="bg-purple-300 hover:bg-purple-500 p-1 border: rounded-lg">Calcular de grados Centigrados a Fahrenheit</button> <br> <br>
+        <button onclick="gradosFagradosC()" class="bg-purple-300 hover:bg-purple-500 p-1 border: rounded-lg"> Calcular de grados Fahrenheit a Centigrados</button>
     </form>
+    </div>
+    
     
 </body>
 <script>
@@ -38,8 +47,9 @@
     });
 
     function gradosFagradosC(){
-        const resultado = parseInt((gradosC * (9 / 5)) + 32);
-        GF.value = resultado;
+        const gradosF = parseInt(GF.value);
+        const resultado = parseInt((gradosF -32)* (5/9));
+        GC.value = resultado;
 
     }
 </script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="contenedor" class="contenedor">
+
+    </div>
+    <button onclick="addElement()">agregar</button>
+    <button onclick="removeElement()">borrar</button>
+    <button onclick="replaceElemento()">remplazar</button>
+</body>
+<script>
+    const container = document.querySelector(".contenedor")
+    let cont = 0
+    function addElement(){
+
+        const nuevoparrafo = document.createElement("p");
+        nuevoparrafo.textContent = "contenido del parrafo";
+        container.appendChild(nuevoparrafo);
+    }
+
+    function removeElement(){
+        
+      if(container.lastElementChild){
+        container.removeChild(container.lastElementChild);
+        --cont;
+      }else{
+        alert("no hay mas elementos que borar")
+      }
+
+    }
+
+    function replaceElemento(){
+        const nuevo = document.createElement("p")
+        nuevo.textContent= "elemento remplazado";
+        container.replaceChild( nuevo, (container.lastElementChild));
+    }
+
+</script>
+</html>

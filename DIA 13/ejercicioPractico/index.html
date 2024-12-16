@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body>
+    
+        <nav class="flex justify-between bg-teal-500 h-16">
+            <div >
+                <a href="index.html"> <img  class="size-16 " src="./src/img/flor-de-cerezo.png" alt="logo"></a>
+              
+            </div>
+            <ul class="flex justify-end " >
+                <li class="m-4 font-semibold text-teal-100  hover:text-white">iniciar sesion</li>
+                <li class="m-4 font-semibold text-teal-100 hover:text-white" > <a href="registro.html">Registrar</a></li>
+            </ul>
+        </nav>
+    
+    
+        <section class="grid grid-cols-2 gap-4 my-2">
+            <div id="Pokemon" class="bg-teal-100 h-96 p-2">
+                <h2>Buscar pokemon</h2>
+                <br>
+                <input type="text" name="search" id="search" placeholder="escribe ">
+                <br>
+                <button class="bg-green-300 m-4 rounded-lg"  onclick="searchPokemon()">Buscar</button>
+                <div class="flex justify-center" id="result">
+
+                </div >
+
+             </div>
+            <div id="arbolesFloes" class="bg-green-300">
+            
+            </div>
+
+        </section>  
+    
+    
+</body>
+<script>
+   async function searchPokemon() {
+    let nameP = document.getElementById("search").value.trim();
+    const resultDIV =document.getElementById("result");
+    resultDIV.innerHTML  = "";
+    try{
+        const llamarApi = await fetch(`https://pokeapi.co/api/v2/pokemon/${nameP}`);
+        if(!llamarApi.ok){
+            throw new Error ("error al cargar la api");
+        }
+        const data = await llamarApi.json();
+
+        
+        const content = document.createElement("div");
+            content.innerHTML = `
+                <div class="  w-64 p-4 bg-white shadow-md rounded">
+                <h4> ${data.name} </h4>
+                <img src="${data.sprites.front_default}">
+                <p>Tipo: ${data.types.map(type => type.type.name).join(", ")}</p>
+                <p>Peso: ${(data.weight / 10).toFixed(1)} kg</p>
+                <p>Altura: ${(data.height / 10).toFixed(1)} m</p>
+                </div>`
+            ;
+        ;resultDIV.appendChild(content);     
+    
+        
+
+
+    } catch (error) {
+        console.error("Error", error.message);
+        alert("problemas en la busqueda")
+    }
+    
+   }
+
+
+   
+</script>
+</html>
