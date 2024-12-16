@@ -37,5 +37,30 @@
         <button type="submit">Registrar</button>
     </form>
 </body>
-<script src="./src/registro.js"></script>
+<script >
+    //llamar los datos del formulario
+function registroUsuario(){
+
+    document.getElementById("formulario").addEventListener("submit", (event) => {
+       event.preventDefault();
+
+      const formData = {
+        nombre: document.getElementById("nombre").value,
+        apellido: document.getElementById("apellido").value,
+        edad: document.getElementById("edad").value,
+        genero: document.getElementById("genero").value,
+        usuario: document.getElementById("user").value,
+        contraseña: document.getElementById("password").value,
+      };
+      //guardar datos en el localstorage
+      localStorage.setItem("formData", JSON.stringify(formData));
+      alert("datos guardados temporalmente");
+    });
+
+
+     
+}
+registroUsuario()
+
+</script>
 </html>
