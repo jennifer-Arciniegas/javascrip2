@@ -1,6 +1,9 @@
 //llamar los datos del formulario
-export function registroUsuario(){
-    document.getElementById("formulario").addEventListener("submit", () => {
+export function registroUsuario() {
+  const formulario = document.getElementById("formulario");
+  if (formulario) {
+    formulario.addEventListener("submit", (event) => {
+      event.preventDefault();
       const formData = {
         nombre: document.getElementById("nombre").value,
         apellido: document.getElementById("apellido").value,
@@ -10,15 +13,8 @@ export function registroUsuario(){
         contraseña: document.getElementById("password").value,
       };
       localStorage.setItem("formData", JSON.stringify(formData));
-      alert("datos guardados temporalmente");
+      alert("Datos guardados temporalmente");
     });
-
-    //evitar que el formulario al enviarse se recargue
-    document
-      .getElementById("formulario")
-      .addEventListener("submit", (event) => {
-        event.preventDefault();
-      });
-
-
+  }
 }
+

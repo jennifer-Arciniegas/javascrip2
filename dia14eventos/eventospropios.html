@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body>
+    <main class="flex justify-center m-10">
+        <div class="bg-sky-300 w-96 p-4">
+            <p>Ejemplo Eventos JS- Aumentar y Disminuir </p>
+            <p><b>Contador</b></p>
+            <button class="bg-rose-100 rounded-lg m-1 p-1" id="aumentando"> Aumentar</button>
+            <button class="bg-green-100 rounded-lg m-1 p-1" id="disminuyendo">Disminuir</button>
+            <p><b>Contador: <span id="result"> </span></b></p>
+        </div>
+    </main>
+    
+</body>
+<script>
+    let cont = 0;
+    let resultadoC = document.getElementById("result");
+
+    const aumentar = document.querySelector("#aumentando");
+    const Diminuir = document.querySelector("#disminuyendo");
+    
+
+    aumentar.addEventListener("click", () =>{
+        resultadoC.textContent = `${++cont}`
+
+    });
+    Diminuir.addEventListener("click", () => {
+        
+        resultadoC.textContent =`${--cont}` 
+    });
+
+</script>
+</html>
