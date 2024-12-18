@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body class="bg-rose-300">
+    <div class="container mx-auto mt-20 p-4">
+        <div  class="bg-white mx-auto">
+            <div> 
+                <input type="text" id="display" readonly value="0" class="w-full bg-black  text-right text-2xl text-white border rounded">
+            </div>
+            <div class="calculadora grid grid-cols-4 grid-rows-4 gap 2">
+                <button class="btn bg-gray-200 hover:bg-gray-300 p-2" data-valor="+"> +</button>
+                <button class="btn bg-gray-200 hover:bg-gray-300 p-2" data-valor="-">-</button>
+                <button class="btn bg-gray-200 hover:bg-gray-300 p-2" data-valor="*">x</button>
+                <button class="btn bg-gray-200 hover:bg-gray-300 p-2" data-valor="/">/</button>
+                <button class="btn bg-white hover:bg-gray-100 p-2" data-valor="7">7</button>
+                <button class="btn bg-white hover:bg-gray-100 p-2" data-valor="8">8</button>
+                <button class="btn bg-white hover:bg-gray-100 p-2" data-valor="9">9</button>
+                <button class="btn bg-white hover:bg-gray-100 p-2" data-valor="4">4</button>
+                <button class="btn bg-white hover:bg-gray-100 p-2" data-valor="5">5</button>
+                <button class="btn bg-white hover:bg-gray-100 p-2" data-valor="6">6</button>
+                <button class="btn bg-white hover:bg-gray-100 p-2" data-valor="1">1</button>
+                <button class="btn bg-white hover:bg-gray-100 p-2" data-valor="2">2</button>
+                <button class="btn bg-white hover:bg-gray-100 p-2" data-valor="3">3</button>
+                <button class="btn bg-white hover:bg-gray-100 p-2" data-valor="0">0</button>
+                <button class="btn bg-white hover:bg-gray-100 p-2" data-valor=".">.</button>
+                <button class="btn bg-white hover:bg-gray-100 p-2" data-valor="C">C</button>
+                <button class="btn bg-rose-400 p-2 row-start-2 row-end-6" data-valor="=">=</button>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script src="calculo.js"></script>
+</html>
