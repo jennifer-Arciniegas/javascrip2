@@ -1,17 +1,34 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const calculoadora = document.addEventListener(".calculadora");
+    const calculadora = document.querySelector(".calculadora");  
     const pantalla = document.getElementById("display");
-    let  Pnumero = null;
-    let operador = null;
-    let reiniar = false; // es el indicador de cuando se debe reiniar la calculadora
+    let currentValue = "0";  // Valor inicial en el display
 
-    //escucha los click que se dan dentro del elemento de calculadora
-    calculoadora.addEventListener("click", (event)=>{
-        //comprobacion de lo clickeado ah sido un boton
-        // retorna si el click no fue en un boton !
-        if(!event.target.matches("button")) return;
+    // Escucha los clicks que se dan dentro del elemento de la calculadora
+    calculadora.addEventListener("click", (event) => {
+        // Comprobación de lo clickeado haya sido un botón
+        // Retorna si el click no fue en un botón
+        if (!event.target.matches("button")) return;
 
-        const boton = event.target;
-        const valorBoton = boton.dataset.valor;
-    })
-})
+        const button = event.target;  
+
+        if (button.tagName === "BUTTON") {
+            const buttonId = button.id;
+
+            if (/[0-9]/.test(buttonId) || buttonId === ".") {
+                // Si el valor actual es "0" y el botón presionado no es "."
+                if (currentValue === "0" && buttonId !== ".") {
+                    currentValue = buttonId; // reemplaza el 0 por el valor del botón presionado
+                } else if (buttonId === "." && !currentValue.includes(".")) {
+                    currentValue += buttonId; // Agrega el punto solo si no existe ya
+                } else if (buttonId !== ".") {
+                    currentValue += buttonId; // Muestra números
+                }
+            } else if (buttonId === "ac") {
+                currentValue = "0"; // Limpiar la pantalla
+            }
+
+            // Actualiza el display
+            pantalla.value = currentValue;
+        }
+    });
+});
